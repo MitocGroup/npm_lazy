@@ -51,7 +51,8 @@ function start(config) {
     maxRetries: config.maxRetries,
     timeout: config.httpTimeout,
     rejectUnauthorized: config.rejectUnauthorized,
-    proxy: config.proxy
+    proxy: config.proxy,
+    readOnly: config.readOnly
   });
 
   var packageConfig = {

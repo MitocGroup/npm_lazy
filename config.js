@@ -1,22 +1,22 @@
 var path = require('path'),
-    homePath = path.normalize(process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']);
+    homePath = path.normalize(process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME']);
 
 module.exports = {
   // Logging config
   loggingOpts: {
 
-	// show the ip address of the machine requesting the npm package
+	  // show the ip address of the machine requesting the npm package
     logRequesterIP: true,
     // Print to stdout with colors
     logToConsole: true,
     // Write to file
     logToFile: false,
-
     // This should be a file path.
     filename: homePath + '/npm_lazy.log'
   },
 
   // Cache config
+  readOnly: false,
 
   // `cacheDirectory`: Directory to store cached packages.
   //
@@ -41,9 +41,9 @@ module.exports = {
   // Request config
 
   // max milliseconds to wait for each HTTP response
-  httpTimeout: 10000,
+  httpTimeout: 4000,
   // maximum number of retries per HTTP resource to get
-  maxRetries: 5,
+  maxRetries: 2,
   // whether or not HTTPS requests are checked against Node's list of CAs
   // set false if you are using your own npm mirror with a self-signed SSL cert
   rejectUnauthorized: true,
